@@ -1,69 +1,67 @@
-## 1. Make sure controller always is in this format
---------------------------------------------------
+# Outline: 
+A notorious criminal escape artist has vanished again. However, the criminal may be hiding in only one of the possible 5 neighbouring cities. 3 fearless cops have volunteered in capturing the fugitive hiding and they need your help!
 
-//@desc {method} {personal description}
+## Technologies:
+Frontend: Vue, React, or Angular (Choose one)
+Backend: NodeJS
 
-//@route {method} {/endpoint}
+## Gameplay:
+City Selection: Each cop independently chooses one city from below to investigate:
+City Distance from current city
+Yapkashnagar 60 KM
+Lihaspur 50 KM
+Narmis City 40 KM
+Shekharvati 30 KM
+Nuravgram 20 KM
 
-//@access {modifier}
 
-const xyz = async(req, res, next) => {
-    try{
 
-            [ ALL YOUR BUSINESS LOGIC ]
-            const response = await callYourFunction(req);
-            return res.status(200).json(responseUtility.build('SUCCESS', response));
-    }
-    catch(error){
-        return next(error)
-    }
-}
+## Vehicle Selection: Based on the chosen city's distance, each cop selects an electric vehicle considering its range and availability:
+Kind       Range    Count 
+EV Bike    60 KM    2
+EV Car     100 KM   1
+EV SUV     120 KM   1
 
-## 2. Always wrap entire function in try / catch block. Catch block should only have 1 logger.error and ExceptionalResolver nothing more.
--------------------------------------------------------------------------------------------------------------------------------------------
 
-const callYourFunction = (req) => {
-    try{
+## Result: The system determines if any cop successfully found the fugitive (simulated). If found, it displays the name of the cop who made the successful capture.
 
-            [ ALL YOUR BUSINESS LOGIC ]
-    }
-    catch(err){
-        logger.error(`callYourFunction -> ${err.message}`) // This helps to know at which function error happend.
-        ExceptionResolver(err, null);
-    }
-}
 
-## 3. Always throw ONLY Custom Exceptions check exceptions.js which contains wide variety of Error Classes
-----------------------------------------------------------------------------------------------------------
 
-const callYourFunction = (req) => {
-    try{
 
-            [ ALL YOUR BUSINESS LOGIC ]
-            throw new NotFound(`YOUR CUSTOM MESSAGE`);
-    }
-    catch(err){
-        logger.error(`callYourFunction -> ${err.message}`)
-        ExceptionResolver(err, null);
-    }
-}
 
-## 4. Handling custom thrown errors and system generated errors
------------------------------------------------------------------------------------------------------------
 
-const callYourFunction = (req) => {
-    try{
+## Technical Requirements:
 
-            [ ALL YOUR BUSINESS LOGIC ]
-            [ SYSTEM GENERATED ERRORS ]
-    }
-    catch(err){
-        logger.error(`callYourFunction -> ${err.message}`)
-        ExceptionResolver(err, 'YOUR PERSONAL MESSAGE');
+Frontend:
 
-        // ExceptionResolver takes care of system errors ( OR ELSE )
-        // Provision given to send a personal message also.
-    }
-}
+Develop screens for below:
+Start/Landing page
+Selection of city for each cop
+Selection of vehicle options for each cop.
+Result page indicating the capture status and, if successful, the capturing cop's name.
 
-## 5. HAPPY CODIING
+Backend (NodeJS):
+
+Use correct data structures to store city names, distances, and vehicle properties (range, count) and CRUD operations for the same.
+Simulate the fugitive's location in one of the cities (randomly).
+Based on cop choices and simulated location, determine if any cop successfully captured the fugitive.
+
+ReadMe:
+Solution must contain a ReadMe file
+Any assumptions made with the requirements must be clearly stated.
+Build steps must be provided.
+
+
+Note:
+Vehicle must have enough range for a round trip.
+City selections must be unique for each cop.
+Do not use actual database connections. Use in-memory data structures for simplicity.
+Focus on clean code, modularity, and maintainability.
+Authentication & Authorization not required.
+The app must be deployed online. You may use a free service such as netlify for the same.
+UI must be responsive
+Bonus points for unit testing.
+Bonus points for Clean UI/UX.
+No mock UI. Candidates are free to use their imagination.
+Next page contains assets that may be used (Not mandatory, feel free to be creative).
+

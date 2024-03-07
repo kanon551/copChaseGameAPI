@@ -1,8 +1,8 @@
 const express = require('express');
-const exampleRouter = require('./exampleRouter');
+const chaseRouter = require('./chaseRouter');
 
 const mainRouter = express.Router();
 
-    mainRouter.use("/example", exampleRouter);
+    mainRouter.use("/Yocket", chaseRouter);
 
 module.exports = mainRouter

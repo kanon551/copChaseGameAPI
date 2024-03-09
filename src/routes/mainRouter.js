@@ -3,6 +3,6 @@ const chaseRouter = require('./chaseRouter');
 
 const mainRouter = express.Router();
 
-    mainRouter.use("/Yocket", chaseRouter);
+    mainRouter.use("/yocket", chaseRouter);
 
 module.exports = mainRouter
